@@ -25,31 +25,48 @@ This project shows how the **RLS adaptive filter** can recover a clean signal fr
 The RLS filter minimizes the exponential‐weighted sum of squared errors. Each iteration performs:
 
 1. Form the input vector:  
-   `x⃗ = [x[n], x[n-1], ..., x[n-M+1]]ᵀ`
+   `x_vec = [x[n], x[n-1], ..., x[n-M+1]]^T`
 
 2. Predict output:  
-   `ŷ[n] = wᵀ x⃗`
+   `y_hat[n] = w^T x_vec`
 
 3. Compute error:  
-   `e[n] = d[n] – ŷ[n]`
+   `e[n] = d[n] - y_hat[n]`
 
 4. Compute gain vector:  
-   `k = (P x⃗) / (λ + x⃗ᵀ P x⃗)`
+   `k = (P x_vec) / (λ + x_vec^T P x_vec)`
 
 5. Update weights:  
-   `w ← w + k e[n]`
+   `w = w + k e[n]`
 
 6. Update inverse covariance P:  
-   `P ← (P − k x⃗ᵀ P) / λ`
+   `P = (P - k x_vec^T P) / λ`
 
-Parameters:
+## Parameters:
 - **M**: Filter length (number of taps), which gives the filter memory.
 - **λ**: Forgetting factor (0 < λ ≤ 1).
 - **δ**: Initialization constant for `P = (1/δ) I`.
 
-## Usage
+## Results
 
-Run the script:
-```bash
-python RLS.py
+The output plot shows:
+- **Blue** – Noisy signal
+- **Red** – True clean signal
+- **Green** – RLS-estimated signal
+These lines illustrate how closely the RLS filter tracks the true signal amid noise.
+
+
+
+## Educational Value
+
+This demo teaches:
+- Adaptive filtering concepts and real-time noise reduction
+- Choice of filter length, λ, and δ
+- Visual impact of RLS’s fast convergence
+
+### Possible extensions
+- Simulate delayed/noisy references and auto-select M via cross-correlation
+- Compare RLS to LMS/NLMS variants
+- Extend to real biomedical noise scenarios (EEG, ECG, etc.)
+
 
