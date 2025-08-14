@@ -41,6 +41,19 @@ The RLS filter minimizes the exponential‐weighted sum of squared errors. Each 
 6. Update inverse covariance P:  
    `P = (P - k x_vec^T P) / λ`
 
+### Variables Used
+
+- `x[n]`: Input signal at time `n`
+- `x_vec`: Column vector of most recent `M` input samples
+- `d[n]`: Desired signal at time `n` (clean target)
+- `y_hat[n]`: Predicted output
+- `e[n]`: Prediction error
+- `w`: Filter weight vector
+- `P`: Inverse correlation matrix
+- `λ`: Forgetting factor
+- `k`: Kalman gain vector
+
+
 ## RLS Cost Function and the Role of λ
 
 The **Recursive Least Squares (RLS)** algorithm minimizes the following **exponentially weighted cost function** at each time step \( n \):
