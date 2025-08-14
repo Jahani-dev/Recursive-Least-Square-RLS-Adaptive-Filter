@@ -45,16 +45,13 @@ The RLS filter minimizes the exponential‐weighted sum of squared errors. Each 
 
 The **Recursive Least Squares (RLS)** algorithm minimizes the following **exponentially weighted cost function** at each time step \( n \):
 
-\[
-J(n) = \sum_{i=1}^{n} \lambda^{n - i} \cdot \left[d(i) - \mathbf{w}(n)^T \mathbf{x}(i)\right]^2
-\]
+J(n) = ∑ᵢ₌₁ⁿ λ⁽ⁿ⁻ⁱ⁾ · [ d(i) − w(n)ᵀ · x(i) ]²
 
 Where:
-- \( \mathbf{x}(i) \) is the input vector at time \( i \)
-- \( d(i) \) is the desired (clean) output
-- \( \lambda \in (0, 1] \) is the **forgetting factor**
+- `λ ∈ (0, 1]` is the forgetting factor that exponentially decreases the weight of past errors
 
-### 🔍 What does this mean?
+
+### What does this mean?
 
 - RLS minimizes the **sum of squared prediction errors**.
 - But instead of treating all past errors equally, it uses \( \lambda \) to **exponentially decay the importance of old data**.
