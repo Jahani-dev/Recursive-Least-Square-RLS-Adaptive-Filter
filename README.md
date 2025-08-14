@@ -41,7 +41,7 @@ The RLS filter minimizes the exponential‐weighted sum of squared errors. Each 
 6. Update inverse covariance P:  
    `P = (P - k x_vec^T P) / λ`
 
-## 🎯 RLS Cost Function and the Role of λ
+## RLS Cost Function and the Role of λ
 
 The **Recursive Least Squares (RLS)** algorithm minimizes the following **exponentially weighted cost function** at each time step \( n \):
 
@@ -61,7 +61,7 @@ Where:
   - **Recent data gets more weight**
   - **Older data is “forgotten”**
 
-### ⚖️ How λ affects the learning:
+### How λ affects the learning:
 
 | λ Value | Behavior |
 |---------|----------|
