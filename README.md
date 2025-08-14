@@ -2,7 +2,7 @@
 
 A Python educational example demonstrating how an M-tap Recursive Least Squares (RLS) filter can estimate a clean signal from noisy observations.
 
-# Recursive-Least-Square-RLS-Adaptive-Filter
+## Recursive-Least-Square-RLS-Adaptive-Filter
 
 This repo contains a single Python script that demonstrates Recursive Least Squares (RLS) adaptive filtering.
 It builds a clean sine wave, adds Gaussian noise, and uses an M-tap RLS filter to estimate the clean signal back from the noisy observation.
@@ -43,30 +43,27 @@ The RLS filter minimizes the exponential‐weighted sum of squared errors. Each 
    `P = (P - k x_vec^T P) / λ`
 
 ## Parameters:
+
 - **M**: Filter length (number of taps), which gives the filter memory.
 - **λ**: Forgetting factor (0 < λ ≤ 1).
 - **δ**: Initialization constant for `P = (1/δ) I`.
 
-## Results
 
-The output plot shows:
-- **Blue** – Noisy signal
-- **Red** – True clean signal
-- **Green** – RLS-estimated signal
-These lines illustrate how closely the RLS filter tracks the true signal amid noise.
+## Results Visualization
 
+The plot below shows the noisy signal (blue), the true clean signal (red), and the RLS-estimated signal (green):
 
+![RLS Noise Removal](RLS_Noise_Removal.png)
 
-## Educational Value
-
-This demo teaches:
-- Adaptive filtering concepts and real-time noise reduction
-- Choice of filter length, λ, and δ
-- Visual impact of RLS’s fast convergence
 
 ### Possible extensions
+
 - Simulate delayed/noisy references and auto-select M via cross-correlation
 - Compare RLS to LMS/NLMS variants
 - Extend to real biomedical noise scenarios (EEG, ECG, etc.)
 
 
+## Author
+
+Sahar Jahani  
+[GitHub Profile](https://github.com/Jahani-dev)
